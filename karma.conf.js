@@ -76,6 +76,13 @@ module.exports = function(config) {
       'Chrome'
     ],
 
+    plugins: [
+            'karma-jasmine',
+            'karma-html-reporter',
+            'karma-coverage',
+            'karma-chrome-launcher',
+            'karma-phantomjs-launcher'
+        ],
 
     customLaunchers: {
       Chrome_travis_ci: {
@@ -97,7 +104,7 @@ module.exports = function(config) {
   }
 
   if (process.env.TRAVIS || process.env.CIRCLECI) {
-    config.browsers = ['Chrome_travis_ci'];
+    config.browsers = ['karma-phantomjs-launcher'];
     config.singleRun = true;
   }
 };
